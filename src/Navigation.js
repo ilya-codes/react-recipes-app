@@ -8,7 +8,10 @@ const SearchBar = styled.nav`
   form {
     width: 90vw;
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    bottom: 0.8rem;
   }
 
   input {
@@ -16,11 +19,12 @@ const SearchBar = styled.nav`
     border: none;
     border-radius: 5px;
     font-size: 1.2rem;
-    margin-right: 1rem;
     flex: 1;
     outline: none;
     padding-left: 1rem;
     color: #8ba18e;
+    width: 80vw;
+    margin: 1rem auto;
   }
 
   @media screen and (min-width: 900px) {
@@ -29,7 +33,14 @@ const SearchBar = styled.nav`
     form {
       width: 50vw;
       justify-content: space-between;
+      flex-direction: row;
       margin: 0;
+      align-items: flex-start;
+      position: initial;
+    }
+
+    input {
+      margin: 0 1rem 0 0;
     }
   }
 `;
@@ -44,7 +55,6 @@ const Navigation = ({ search, getSearch, updateSearch }) => {
           value={search}
           onChange={updateSearch}
         />
-
         <Button type="submit">Search</Button>
       </form>
     </SearchBar>

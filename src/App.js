@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Route, Switch } from "react-router-dom";
 import Header from "./Header";
 import Logo from "./Logo";
 import Navigation from "./Navigation";
@@ -6,7 +7,6 @@ import Recipes from "./Recipes";
 import CardDescription from "./CardDescription";
 import Favorites from "./Favorites";
 import Footer from "./Footer";
-import { Route, Switch } from "react-router-dom";
 
 const App = () => {
   const APP_ID = "d7999673";
@@ -15,15 +15,19 @@ const App = () => {
   const [recipes, setRecipes] = useState([]);
   const [search, setSearch] = useState("");
   const [query, setQuery] = useState("chicken");
+  const [description, setDescription] = useState("");
 
   useEffect(() => {
     const getRecipes = async () => {
-      const response = await fetch(
-        `https://api.edamam.com/search?q=${query}&app_id=${APP_ID}&app_key=${APP_KEY}`
-      );
-      const data = await response.json();
-      // console.log(data.hits);
-      setRecipes(data.hits);
+      try {
+        const response = await fetch(
+          `https://api.edamam.com/search?q=${query}&app_id=${APP_ID}&app_key=${APP_KEY}`
+        );
+        const data = await response.json();
+        setRecipes(data.hits);
+      } catch (error) {
+        console.log(error);
+      }
     };
     getRecipes();
   }, [query]);
@@ -35,11 +39,8 @@ const App = () => {
   const getSearch = (e) => {
     e.preventDefault();
     setQuery(search);
-
     setSearch("");
   };
-
-  const [description, setDescription] = useState("");
 
   const handleDescription = (recipe) => {
     setDescription(recipe);
@@ -50,7 +51,7 @@ const App = () => {
       <Switch>
         <Route path="/" exact>
           <Header link="/favorites">
-            <Logo title="Recipe App" />
+            <Logo title="Recipes App" />
             <Navigation
               search={search}
               getSearch={getSearch}
@@ -70,7 +71,7 @@ const App = () => {
           <Header link="/">
             <Logo title="Favorite Recipes" />
           </Header>
-          <Favorites recipes={recipes} />
+          <Favorites handleDescription={handleDescription} />
         </Route>
       </Switch>
       <Footer />

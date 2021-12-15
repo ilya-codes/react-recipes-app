@@ -10,7 +10,7 @@ const Favorites = ({ handleDescription }) => {
     <div>
       <Recipes
         recipes={context.favorites}
-        // handleDescription={handleDescription}
+        handleDescription={handleDescription}
         message="No Favorites Yet"
       />
     </div>

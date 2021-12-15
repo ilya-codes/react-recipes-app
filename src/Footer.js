@@ -11,6 +11,7 @@ const Bottom = styled.footer`
   font-size: 1.5rem;
   display: grid;
   place-content: center;
+  overflow: hidden;
 `;
 const Footer = () => {
   return (

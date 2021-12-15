@@ -5,7 +5,6 @@ const Btn = styled.button`
   text-decoration: none;
   display: grid;
   place-content: center;
-
   border: none;
   border-radius: 5px;
   font-size: 1.2rem;

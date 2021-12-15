@@ -13,7 +13,7 @@ const Cards = styled.main`
     left: 0;
     top: 40vh;
     width: 100vw;
-    font-size: 2.5rem;
+    font-size: 2rem;
     color: #8ba18e;
     text-align: center;
   }
@@ -21,11 +21,14 @@ const Cards = styled.main`
   @media screen and (min-width: 900px) {
     grid-template-columns: repeat(2, 1fr);
     margin: 11rem 4rem 6rem 4rem;
+
+    .replacer {
+      font-size: 2.5rem;
+    }
   }
 
   @media screen and (min-width: 1200px) {
     grid-template-columns: repeat(3, 1fr);
-    margin: 11rem 4rem 6rem 4rem;
   }
 
   @media screen and (min-width: 1600px) {

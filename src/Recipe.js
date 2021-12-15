@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { useContext } from "react";
 import FavoritesContext from "./favoritesContext";
 import Button from "./Button";
-import { FaStar } from "react-icons/fa";
+import { FaStar, FaBookOpen } from "react-icons/fa";
 
 const RecipeCard = styled.div`
   width: 100%;
@@ -44,6 +44,11 @@ const RecipeCard = styled.div`
 
   .link {
     text-decoration: none;
+    Button {
+      display: flex;
+      align-items: center;
+      justify-content: space-evenly;
+    }
   }
 
   .fav-badge {
@@ -94,7 +99,10 @@ const Recipe = ({ handleDescription, recipe }) => {
           className="link cardBtn"
           onClick={() => handleDescription(recipe)}
         >
-          <Button>Recipe</Button>
+          <Button>
+            <FaBookOpen />
+            Recipe
+          </Button>
         </Link>
         <span className="cardBtn" onClick={() => toggleFavorites()}>
           <Button>{recipeIsFavorite ? "Remove" : "Favorites"}</Button>
