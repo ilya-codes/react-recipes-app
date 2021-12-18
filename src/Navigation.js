@@ -16,15 +16,21 @@ const SearchBar = styled.nav`
     padding-left: 1rem;
     color: #8ba18e;
     width: 100%;
-    margin: 1rem auto;
+    margin: 0 auto;
   }
 
   @media screen and (min-width: 900px) {
     margin-top: 0;
 
     form {
-      width: 40vw;
+      width: 30vw;
       margin-right: 1rem;
+    }
+  }
+
+  @media screen and (min-width: 1280px) {
+    form {
+      width: 40vw;
     }
   }
 `;

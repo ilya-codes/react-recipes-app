@@ -12,20 +12,23 @@ import Navigation from "./Navigation";
 const Top = styled.header`
   position: sticky;
   z-index: 2;
-  top: -4rem;
+  top: -4.5rem;
   width: 100vw;
   height: 11rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  padding: 1rem;
+  padding: 0 1rem 1rem 1rem;
   color: #fff;
   background-color: #c1dfc4;
   overflow: hidden;
 
   .logo-container {
-    position: initial;
+    position: relative;
+    background-color: #9cb49f;
+    padding: 1rem 1rem 0.5rem 1rem;
+    border-radius: 0 0 15px 15px;
   }
 
   .link {
@@ -46,7 +49,7 @@ const Top = styled.header`
 
   .badge {
     position: relative;
-    bottom: 2.7rem;
+    bottom: 2.5rem;
     left: 7.2rem;
     height: 1.5rem;
     width: 1.5rem;
@@ -73,8 +76,11 @@ const Top = styled.header`
     top: 0;
 
     .logo-container {
+      padding: 1rem 1rem 0.5rem 4rem;
       position: fixed;
-      left: 3rem;
+      top: 0;
+      left: 0;
+      border-radius: 0 0 15px 0;
     }
 
     .fav-count-info {

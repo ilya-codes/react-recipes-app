@@ -5,7 +5,7 @@ const HeaderLogo = styled.h1`
   text-align: center;
   font-size: 1.8rem;
 
-  @media screen and (min-width: 900px) {
+  @media screen and (min-width: 1280px) {
     letter-spacing: 0.5rem;
     font-size: 2.2rem;
   }
