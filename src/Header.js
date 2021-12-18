@@ -5,35 +5,34 @@ import styled from "styled-components";
 import FavoritesContext from "./favoritesContext";
 import Button from "./Button";
 import { FaHome } from "react-icons/fa";
+import { FaSearch } from "react-icons/fa";
+import Logo from "./Logo";
+import Navigation from "./Navigation";
 
 const Top = styled.header`
-  position: fixed;
+  position: sticky;
   z-index: 2;
-  top: 0;
+  top: -4rem;
   width: 100vw;
-  height: 12rem;
-  padding: 1rem 2rem;
+  height: 11rem;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
   color: #fff;
   background-color: #c1dfc4;
+  overflow: hidden;
+
+  .logo-container {
+    position: initial;
+  }
 
   .link {
     text-decoration: none;
-    display: flex;
-
-    justify-content: center;
-    Button {
-      position: fixed;
-      top: 11rem;
-      z-index: 2;
-    }
   }
 
   .fav-count-info {
-    width: 90vw;
-    margin-top: 2rem;
     text-align: center;
     font-size: 1.2rem;
     color: #fff;
@@ -63,64 +62,83 @@ const Top = styled.header`
     border-radius: 50%;
   }
 
-  .home-btn {
-    width: 5.2rem;
+  .btn-container {
+    width: 18rem;
     display: flex;
-    align-items: center;
     justify-content: space-between;
   }
 
   @media screen and (min-width: 900px) {
-    justify-content: space-between;
+    justify-content: flex-end;
     flex-direction: row;
     padding: 2rem 3rem;
+    min-height: 0;
     height: 6rem;
+    position: fixed;
+    top: 0;
     ::after {
       top: 6rem;
     }
 
-    .link {
-      display: block;
-      Button {
-        position: initial;
-      }
+    .logo-container {
+      position: fixed;
+      left: 3rem;
     }
 
     .fav-count-info {
-      width: 50vw;
-      margin-top: 0;
       font-size: 1.5rem;
       text-align: end;
+      margin-right: 2rem;
     }
   }
 `;
 
-const Header = (props) => {
+const Header = ({ link, search, getSearch, updateSearch }) => {
   const context = useContext(FavoritesContext);
 
   return (
     <Top>
-      {props.children}
-      {props.link === "/" && (
-        <span className="fav-count-info">
-          You have <span className="count">{context.totalFavorites}</span>{" "}
-          favorite {context.totalFavorites === 1 ? "recipe" : "recipes"}
-        </span>
-      )}
-
-      <Link to={props.link} className="link">
-        <Button>
-          {props.link === "/" ? (
-            <span className="home-btn">
+      {link === "/" ? (
+        <>
+          <div className="logo-container">
+            <Logo title="Favorites" />
+          </div>
+          <span className="fav-count-info">
+            You have <span className="count">{context.totalFavorites}</span>{" "}
+            favorite {context.totalFavorites === 1 ? "recipe" : "recipes"}
+          </span>
+          <Link to={link} className="link">
+            <Button>
               <FaHome /> Home
-            </span>
-          ) : (
-            <span className="badged-btn">
-              Favorites<div className="badge">{context.totalFavorites}</div>{" "}
-            </span>
-          )}
-        </Button>
-      </Link>
+            </Button>
+          </Link>
+        </>
+      ) : (
+        <>
+          <div className="logo-container">
+            <Logo title="Recipes App" />
+          </div>
+          <Navigation
+            search={search}
+            getSearch={getSearch}
+            updateSearch={updateSearch}
+          />
+          <div className="btn-container">
+            <Button role="search">
+              <FaSearch />
+              Search
+            </Button>
+            <Link to={link} className="link">
+              <Button>
+                <span className="badged-btn">
+                  Favorites
+                  <div className="badge">{context.totalFavorites}</div>{" "}
+                </span>
+              </Button>
+            </Link>
+          </div>
+        </>
+      )}
     </Top>
   );
 };

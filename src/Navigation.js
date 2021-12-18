@@ -1,17 +1,10 @@
 import React from "react";
 import styled from "styled-components";
-import Button from "./Button";
 
 const SearchBar = styled.nav`
-  margin-top: 1rem;
-
   form {
     width: 90vw;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: relative;
-    bottom: 0.8rem;
+    margin: auto;
   }
 
   input {
@@ -19,11 +12,10 @@ const SearchBar = styled.nav`
     border: none;
     border-radius: 5px;
     font-size: 1.2rem;
-    flex: 1;
     outline: none;
     padding-left: 1rem;
     color: #8ba18e;
-    width: 80vw;
+    width: 100%;
     margin: 1rem auto;
   }
 
@@ -31,16 +23,8 @@ const SearchBar = styled.nav`
     margin-top: 0;
 
     form {
-      width: 50vw;
-      justify-content: space-between;
-      flex-direction: row;
-      margin: 0;
-      align-items: flex-start;
-      position: initial;
-    }
-
-    input {
-      margin: 0 1rem 0 0;
+      width: 40vw;
+      margin-right: 1rem;
     }
   }
 `;
@@ -48,14 +32,13 @@ const SearchBar = styled.nav`
 const Navigation = ({ search, getSearch, updateSearch }) => {
   return (
     <SearchBar>
-      <form className="search-form" onSubmit={getSearch}>
+      <form className="search-form" id="search-form" onSubmit={getSearch}>
         <input
           type="text"
           className="search-bar"
           value={search}
           onChange={updateSearch}
         />
-        <Button type="submit">Search</Button>
       </form>
     </SearchBar>
   );

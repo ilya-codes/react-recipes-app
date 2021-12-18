@@ -8,7 +8,7 @@ import { FaStar, FaBookOpen } from "react-icons/fa";
 
 const RecipeCard = styled.div`
   width: 100%;
-  padding: 0 2rem 2rem 2rem;
+  padding: 0 2rem 1rem 2rem;
   border-radius: 5px;
   box-shadow: 0 6px 16px #8ba18e8b;
   display: flex;
@@ -17,12 +17,14 @@ const RecipeCard = styled.div`
   align-items: center;
   overflow: hidden;
   text-align: center;
+  background-color: #fff;
 
   h1 {
     color: #8ba18e;
-    margin-bottom: 2rem;
-    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    font-size: 1.4rem;
     max-height: 6rem;
+    max-width: 90%;
   }
 
   img {
@@ -31,7 +33,7 @@ const RecipeCard = styled.div`
   }
 
   .btns-container {
-    margin-top: 2rem;
+    margin-top: 1rem;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -39,16 +41,11 @@ const RecipeCard = styled.div`
   }
 
   .cardBtn {
-    margin: 1rem;
+    margin: 0.5rem;
   }
 
   .link {
     text-decoration: none;
-    Button {
-      display: flex;
-      align-items: center;
-      justify-content: space-evenly;
-    }
   }
 
   .fav-badge {
@@ -67,6 +64,29 @@ const RecipeCard = styled.div`
     position: relative;
     left: 1.4rem;
     top: 0.2rem;
+  }
+
+  @media screen and (min-width: 900px) {
+    padding: 0 2rem 2rem 2rem;
+
+    h1 {
+      margin-bottom: 2rem;
+      font-size: 1.8rem;
+      max-width: 100%;
+    }
+
+    .btns-container {
+      width: 100%;
+      margin-top: 2rem;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+
+    .cardBtn {
+      margin: 1rem 0;
+    }
   }
 `;
 
@@ -105,7 +125,7 @@ const Recipe = ({ handleDescription, recipe }) => {
           </Button>
         </Link>
         <span className="cardBtn" onClick={() => toggleFavorites()}>
-          <Button>{recipeIsFavorite ? "Remove" : "Favorites"}</Button>
+          <Button>{recipeIsFavorite ? "Remove" : "To Favorites"}</Button>
         </span>
       </div>
     </RecipeCard>

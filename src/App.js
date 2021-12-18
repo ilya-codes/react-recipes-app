@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { Route, Switch } from "react-router-dom";
 import Header from "./Header";
 import Logo from "./Logo";
-import Navigation from "./Navigation";
 import Recipes from "./Recipes";
 import CardDescription from "./CardDescription";
 import Favorites from "./Favorites";
@@ -14,8 +13,9 @@ const App = () => {
 
   const [recipes, setRecipes] = useState([]);
   const [search, setSearch] = useState("");
-  const [query, setQuery] = useState("chicken");
+  const [query, setQuery] = useState("fish");
   const [description, setDescription] = useState("");
+  const [replacer, setReplacer] = useState("Loading");
 
   useEffect(() => {
     const getRecipes = async () => {
@@ -24,11 +24,13 @@ const App = () => {
           `https://api.edamam.com/search?q=${query}&app_id=${APP_ID}&app_key=${APP_KEY}`
         );
         const data = await response.json();
+        setReplacer(data.count ? "Loading" : "Nothing found");
         setRecipes(data.hits);
       } catch (error) {
         console.log(error);
       }
     };
+
     getRecipes();
   }, [query]);
 
@@ -39,6 +41,8 @@ const App = () => {
   const getSearch = (e) => {
     e.preventDefault();
     setQuery(search);
+    setReplacer("Loading");
+    setRecipes([]);
     setSearch("");
   };
 
@@ -50,25 +54,30 @@ const App = () => {
     <div className="App">
       <Switch>
         <Route path="/" exact>
-          <Header link="/favorites">
+          <Header
+            link="/favorites"
+            search={search}
+            getSearch={getSearch}
+            updateSearch={updateSearch}
+          >
             <Logo title="Recipes App" />
-            <Navigation
-              search={search}
-              getSearch={getSearch}
-              updateSearch={updateSearch}
-            />
           </Header>
           <Recipes
             recipes={recipes}
             handleDescription={handleDescription}
-            message="Nothing Found"
+            message={replacer}
           />
         </Route>
         <Route path="/description">
           <CardDescription description={description} />
         </Route>
         <Route path="/favorites">
-          <Header link="/">
+          <Header
+            link="/"
+            search={search}
+            getSearch={getSearch}
+            updateSearch={updateSearch}
+          >
             <Logo title="Favorite Recipes" />
           </Header>
           <Favorites handleDescription={handleDescription} />

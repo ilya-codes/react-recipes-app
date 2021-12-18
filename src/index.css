@@ -9,3 +9,25 @@
   min-height: 100vh;
   min-width: 100vw;
 }
+
+.App {
+  background-image: linear-gradient(
+      to right,
+      rgba(255, 255, 255, 0.8),
+      rgba(255, 255, 255, 0.8)
+    ),
+    url("./foodPattern.jpeg");
+  background-size: 70%;
+  background-attachment: fixed;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  min-height: 100vh;
+}
+
+@media screen and (min-width: 900px) {
+  .App {
+    background-size: 30%;
+  }
+}

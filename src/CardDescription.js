@@ -4,24 +4,32 @@ import styled from "styled-components";
 import Button from "./Button";
 
 const Description = styled.div`
-  margin: 2rem auto 4rem auto;
+  align-self: center;
+  margin: 2rem 0 4rem 0;
   width: 85%;
-  padding: 2rem 4rem;
+  padding: 2rem;
   border-radius: 5px;
   box-shadow: 0 6px 16px #8ba18e8b;
   display: grid;
   gap: 2rem;
   justify-items: center;
   overflow: hidden;
+  background-color: #fff;
 
-  h1 {
+  .desc-header {
     color: #8ba18e;
     text-align: center;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
   }
 
-  li {
-    list-style: circle;
+  .desc-list {
+    width: 100%;
+    padding: 2rem;
+    overflow: hidden;
+    .desc-item {
+      list-style-type: circle;
+    }
   }
 
   .side-info {
@@ -39,6 +47,12 @@ const Description = styled.div`
   }
   @media screen and (min-width: 900px) {
     width: 60vw;
+    padding: 2rem 4rem;
+
+    .desc-header {
+      margin-bottom: 2rem;
+      font-size: 1.8rem;
+    }
   }
 `;
 
@@ -49,10 +63,12 @@ const CardDescription = ({ description }) => {
     <Description>
       {description ? (
         <>
-          <h1>{description.label}</h1>
-          <ul>
+          <h1 className="desc-header">{description.label}</h1>
+          <ul className="desc-list">
             {description.ingredientLines.map((ingredient, index) => (
-              <li key={index}>{ingredient}</li>
+              <li key={index} className="desc-item">
+                {ingredient}
+              </li>
             ))}
           </ul>
           <span className="side-info">
