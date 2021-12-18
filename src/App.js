@@ -11,9 +11,13 @@ const App = () => {
   const APP_ID = "d7999673";
   const APP_KEY = "bff4d2942803751399e5562e530d0981";
 
+  const initialQuery = ["chicken", "fish", "beef", "lamb", "pork"][
+    Math.floor(Math.random() * 6)
+  ];
+
   const [recipes, setRecipes] = useState([]);
   const [search, setSearch] = useState("");
-  const [query, setQuery] = useState("fish");
+  const [query, setQuery] = useState(initialQuery);
   const [description, setDescription] = useState("");
   const [replacer, setReplacer] = useState("Loading");
 
