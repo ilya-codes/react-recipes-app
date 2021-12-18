@@ -30,12 +30,12 @@ const Top = styled.header`
 
   .link {
     text-decoration: none;
+    height: 2rem;
   }
 
   .fav-count-info {
     text-align: center;
     font-size: 1.2rem;
-    color: #fff;
   }
 
   .count {
@@ -44,20 +44,15 @@ const Top = styled.header`
     font-weight: 600;
   }
 
-  .badged-btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding-left: 1.5rem;
-  }
-
   .badge {
     position: relative;
-    bottom: 0.9rem;
-    left: 0.5rem;
+    bottom: 2.7rem;
+    left: 7.2rem;
     height: 1.5rem;
     width: 1.5rem;
     line-height: 1.6rem;
+    color: #fff;
+    text-align: center;
     background-color: #6c7d6e;
     border-radius: 50%;
   }
@@ -76,9 +71,6 @@ const Top = styled.header`
     height: 6rem;
     position: fixed;
     top: 0;
-    ::after {
-      top: 6rem;
-    }
 
     .logo-container {
       position: fixed;
@@ -130,11 +122,11 @@ const Header = ({ link, search, getSearch, updateSearch }) => {
             </Button>
             <Link to={link} className="link">
               <Button>
-                <span className="badged-btn">
-                  Favorites
-                  <div className="badge">{context.totalFavorites}</div>{" "}
-                </span>
+                <span className="badged-btn">Favorites</span>
               </Button>
+              {context.totalFavorites > 0 && (
+                <div className="badge">{context.totalFavorites}</div>
+              )}
             </Link>
           </div>
         </>

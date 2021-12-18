@@ -19,7 +19,7 @@ const RecipeCard = styled.div`
   text-align: center;
   background-color: #fff;
 
-  h1 {
+  .recipe-header {
     color: #8ba18e;
     margin-bottom: 1rem;
     font-size: 1.4rem;
@@ -27,7 +27,14 @@ const RecipeCard = styled.div`
     max-width: 90%;
   }
 
+  .image-container {
+    width: 100%;
+    min-height: 20rem;
+    margin-top: auto;
+  }
+
   img {
+    display: block;
     border-radius: 5px;
     width: 100%;
   }
@@ -69,10 +76,9 @@ const RecipeCard = styled.div`
   @media screen and (min-width: 900px) {
     padding: 0 2rem 2rem 2rem;
 
-    h1 {
+    .recipe-header {
       margin-bottom: 2rem;
       font-size: 1.8rem;
-      max-width: 100%;
     }
 
     .btns-container {
@@ -111,8 +117,10 @@ const Recipe = ({ handleDescription, recipe }) => {
       ) : (
         <div style={{ height: "2rem" }}></div>
       )}
-      <h1>{recipe.label}</h1>
-      <img src={recipe.image} alt="" />
+      <h1 className="recipe-header">{recipe.label}</h1>
+      <div className="image-container">
+        <img src={recipe.image} alt="" />
+      </div>
       <div className="btns-container">
         <Link
           to="/description"
