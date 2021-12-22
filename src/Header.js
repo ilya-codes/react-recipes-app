@@ -18,8 +18,8 @@ const Top = styled.header`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
-  padding: 0 1rem 1rem 1rem;
+  justify-content: flex-end;
+  padding: 0 1rem;
   color: #fff;
   background-color: #c1dfc4;
   overflow: hidden;
@@ -29,6 +29,7 @@ const Top = styled.header`
     background-color: #9cb49f;
     padding: 1rem 1rem 0.5rem 1rem;
     border-radius: 0 0 15px 15px;
+    bottom: 1rem;
   }
 
   .link {
@@ -64,6 +65,7 @@ const Top = styled.header`
     width: 18rem;
     display: flex;
     justify-content: space-between;
+    margin: 1rem 0;
   }
 
   @media screen and (min-width: 900px) {
@@ -81,6 +83,7 @@ const Top = styled.header`
       top: 0;
       left: 0;
       border-radius: 0 0 15px 0;
+      bottom: unset;
     }
 
     .fav-count-info {
