@@ -25,7 +25,7 @@ const Btn = styled.button`
 const Button = (props) => {
   const button =
     props.role === "search" ? (
-      <Btn type="submit" form="search-form">
+      <Btn type="submit" form="search-form" className={props.className}>
         {props.children}
       </Btn>
     ) : (

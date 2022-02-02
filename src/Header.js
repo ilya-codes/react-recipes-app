@@ -35,11 +35,13 @@ const Top = styled.header`
   .link {
     text-decoration: none;
     height: 2rem;
+    margin: 1rem;
   }
 
   .fav-count-info {
     text-align: center;
     font-size: 1.2rem;
+    margin: 0.5rem;
   }
 
   .count {
@@ -65,7 +67,10 @@ const Top = styled.header`
     width: 18rem;
     display: flex;
     justify-content: space-between;
-    margin: 1rem 0;
+
+    .search-btn {
+      margin: 1rem 0;
+    }
   }
 
   @media screen and (min-width: 900px) {
@@ -125,7 +130,7 @@ const Header = ({ link, search, getSearch, updateSearch }) => {
             updateSearch={updateSearch}
           />
           <div className="btn-container">
-            <Button role="search">
+            <Button role="search" className="search-btn">
               <FaSearch />
               Search
             </Button>
