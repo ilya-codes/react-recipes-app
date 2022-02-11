@@ -1,13 +1,13 @@
 import React from "react";
 import { useContext } from "react";
 import { Link } from "react-router-dom";
-import styled from "styled-components";
 import FavoritesContext from "./favoritesContext";
 import Button from "./Button";
-import { FaHome } from "react-icons/fa";
-import { FaSearch } from "react-icons/fa";
 import Logo from "./Logo";
 import Navigation from "./Navigation";
+import { FaHome } from "react-icons/fa";
+import { FaSearch } from "react-icons/fa";
+import styled from "styled-components";
 
 const Top = styled.header`
   position: sticky;
