@@ -8,6 +8,7 @@ import { FaStar, FaBookOpen } from "react-icons/fa";
 
 const RecipeCard = styled.div`
   width: 100%;
+  max-height: 34rem;
   padding: 0 2rem 1rem 2rem;
   border-radius: 5px;
   box-shadow: 0 6px 16px #8ba18e8b;
