@@ -41,7 +41,6 @@ const Top = styled.header`
   .fav-count-info {
     text-align: center;
     font-size: 1.2rem;
-    margin: 0.5rem;
   }
 
   .count {
