@@ -29,7 +29,6 @@ const RecipeCard = styled.div`
 
   .image-container {
     width: 100%;
-    min-height: 20rem;
     margin-top: auto;
   }
 
@@ -42,9 +41,7 @@ const RecipeCard = styled.div`
   .btns-container {
     margin-top: 1rem;
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
+    flex-direction: column;
   }
 
   .cardBtn {
@@ -82,12 +79,10 @@ const RecipeCard = styled.div`
     }
 
     .btns-container {
+      justify-content: space-around;
       width: 100%;
       margin-top: 2rem;
-      display: flex;
       flex-direction: row;
-      flex-wrap: wrap;
-      justify-content: space-between;
     }
 
     .cardBtn {
