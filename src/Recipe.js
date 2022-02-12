@@ -29,14 +29,15 @@ const RecipeCard = styled.div`
   }
 
   .image-container {
-    width: 100%;
     margin-top: auto;
+    height: 100%;
   }
 
   img {
     display: block;
     border-radius: 5px;
-    width: 100%;
+    height: 100%;
+    max-width: 100%;
   }
 
   .btns-container {
