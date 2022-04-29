@@ -6,6 +6,7 @@ import Recipes from "./Recipes";
 import CardDescription from "./CardDescription";
 import Favorites from "./Favorites";
 import Footer from "./Footer";
+import GlobalStyles from "./styles/Global";
 
 const App = () => {
   const APP_ID = "d7999673";
@@ -55,40 +56,43 @@ const App = () => {
   };
 
   return (
-    <div className="App">
-      <Switch>
-        <Route path="/" exact>
-          <Header
-            link="/favorites"
-            search={search}
-            getSearch={getSearch}
-            updateSearch={updateSearch}
-          >
-            <Logo title="Recipes App" />
-          </Header>
-          <Recipes
-            recipes={recipes}
-            handleDescription={handleDescription}
-            message={replacer}
-          />
-        </Route>
-        <Route path="/description">
-          <CardDescription description={description} />
-        </Route>
-        <Route path="/favorites">
-          <Header
-            link="/"
-            search={search}
-            getSearch={getSearch}
-            updateSearch={updateSearch}
-          >
-            <Logo title="Favorite Recipes" />
-          </Header>
-          <Favorites handleDescription={handleDescription} />
-        </Route>
-      </Switch>
-      <Footer />
-    </div>
+    <>
+      <GlobalStyles />
+      <div className="App">
+        <Switch>
+          <Route path="/" exact>
+            <Header
+              link="/favorites"
+              search={search}
+              getSearch={getSearch}
+              updateSearch={updateSearch}
+            >
+              <Logo title="Recipes App" />
+            </Header>
+            <Recipes
+              recipes={recipes}
+              handleDescription={handleDescription}
+              message={replacer}
+            />
+          </Route>
+          <Route path="/description">
+            <CardDescription description={description} />
+          </Route>
+          <Route path="/favorites">
+            <Header
+              link="/"
+              search={search}
+              getSearch={getSearch}
+              updateSearch={updateSearch}
+            >
+              <Logo title="Favorite Recipes" />
+            </Header>
+            <Favorites handleDescription={handleDescription} />
+          </Route>
+        </Switch>
+        <Footer />
+      </div>
+    </>
   );
 };
 

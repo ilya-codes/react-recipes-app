@@ -1,3 +1,7 @@
+import { createGlobalStyle } from "styled-components";
+import img from "../images/foodPattern.jpeg";
+
+const GlobalStyles = createGlobalStyle`
 * {
   margin: 0;
   padding: 0;
@@ -16,7 +20,7 @@
       rgba(255, 255, 255, 0.8),
       rgba(255, 255, 255, 0.8)
     ),
-    url("./images/foodPattern.jpeg");
+    url(${img});
   background-size: 70%;
   background-attachment: fixed;
   display: flex;
@@ -31,3 +35,6 @@
     background-size: 30%;
   }
 }
+`;
+
+export default GlobalStyles;
