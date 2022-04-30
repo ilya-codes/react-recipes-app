@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.js": "/react-recipes-app/static/js/main.b3776c5f.chunk.js",
-    "main.js.map": "/react-recipes-app/static/js/main.b3776c5f.chunk.js.map",
+    "main.js": "/react-recipes-app/static/js/main.52a7dcaa.chunk.js",
+    "main.js.map": "/react-recipes-app/static/js/main.52a7dcaa.chunk.js.map",
     "runtime-main.js": "/react-recipes-app/static/js/runtime-main.99719987.js",
     "runtime-main.js.map": "/react-recipes-app/static/js/runtime-main.99719987.js.map",
     "static/js/2.2315e843.chunk.js": "/react-recipes-app/static/js/2.2315e843.chunk.js",
@@ -13,6 +13,6 @@
   "entrypoints": [
     "static/js/runtime-main.99719987.js",
     "static/js/2.2315e843.chunk.js",
-    "static/js/main.b3776c5f.chunk.js"
+    "static/js/main.52a7dcaa.chunk.js"
   ]
 }
