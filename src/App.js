@@ -26,9 +26,10 @@ const App = () => {
     const getRecipes = async () => {
       try {
         const response = await fetch(
-          `https://api.edamam.com/search?q=${query}&app_id=${APP_ID}&app_key=${APP_KEY}`
+          `https://api.edamam.com/api/recipes/v2/?type=public&q=${query}&app_id=${APP_ID}&app_key=${APP_KEY}`
         );
         const data = await response.json();
+        console.log(data);
         setReplacer(data.count ? "Loading" : "Nothing found");
         setRecipes(data.hits);
       } catch (error) {

@@ -28,7 +28,15 @@ const Recipe = ({ handleDescription, recipe }) => {
       )}
       <h1 className="recipe-header">{recipe.label}</h1>
       <div className="image-container">
-        <img src={recipe.image} alt="" />
+        <img
+          src={
+            recipe.images.LARGE?.url ||
+            recipe.images.REGULAR?.url ||
+            recipe.images.SMALL.url ||
+            recipe.image
+          }
+          alt=""
+        />
       </div>
       <div className="btns-container">
         <Link
